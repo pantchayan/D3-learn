@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algo Visualiser</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="buttons">
+        <!-- <input type="text" name="count" id="countInput" placeholder="Enter size of the array"> -->
+        <!-- <button onclick="newArr()">Form Array</button> -->
+        <button onclick="bubbleSort()"style="margin-left:10px">Bubble Sort</button>
+        <button onclick="stop = true" style="margin-left:40px">Stop</button>
+        <button onclick="reset()">Reset</button>
+        <button onclick="array = d3.shuffle(d3.range(1,count));reset()">Shuffle</button>
+    </div>
+    <div style="margin-top:40px">Steps: <span id="counter">0</span></div>
+
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

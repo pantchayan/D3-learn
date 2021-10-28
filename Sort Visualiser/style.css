@@ -1,0 +1,24 @@
+/* div {
+  margin-left: 40px;
+  margin-top: 20px;
+} */
+
+svg{
+  margin: auto;
+}
+text {
+  fill: black;
+}
+rect {
+  fill: rgb(182, 32, 182)
+}
+.sorted {
+  fill: red;
+}
+.min {
+  fill: red;
+}
+.testing {
+  fill: red;
+}
+

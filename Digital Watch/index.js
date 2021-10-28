@@ -103,7 +103,7 @@ let digits = [
 const squareData = {
   height: 45,
   width: 45,
-  color: "deepskyblue",
+  color: "#39FF14",
   margin: 5,
   x: 0,
   y: 0,
@@ -178,11 +178,13 @@ let render = () => {
       .attr("x", (d) => d.x)
       .attr("y", (d) => d.y)
       .attr("margin", (d) => d.margin)
+      .style("box-shadow", "120px 80px 40px 20px #0ff")
     //   .transition()
     //   .attr("transform", "translate(" + x(-1) + ",0)")
     //   .duration(300);
   }
 };
+
 
 let updateCells = (cellsData, d) => {
   for (let i = 0; i < cellsData.length; i++) {
@@ -193,7 +195,7 @@ let updateCells = (cellsData, d) => {
       cellsData[i].color = "black";
     }
     if (digits[d][r][c] == 1) {
-      cellsData[i].color = "deepskyblue";
+      cellsData[i].color = "#39FF14";
     }
   }
 };

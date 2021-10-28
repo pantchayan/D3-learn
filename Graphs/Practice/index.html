@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SVG Basics</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+    <div class="canvas">
+
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        // databaseURL: "",
+        apiKey: "AIzaSyAIt4jWIhSztAxDNMaZSercC2aQBLND3ao",
+        authDomain: "d3-learning-4ba95.firebaseapp.com",
+        projectId: "d3-learning-4ba95",
+        storageBucket: "d3-learning-4ba95.appspot.com",
+        messagingSenderId: "237409928045",
+        appId: "1:237409928045:web:039205e043e332445fd064"
+      };
+ 
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

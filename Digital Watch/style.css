@@ -12,3 +12,8 @@ svg{
     justify-content: center;
 } */
 
+
+rect:hover{
+    cursor: pointer;
+    background: aqua;
+}
