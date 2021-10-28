@@ -60,6 +60,15 @@ let update = (data) => {
     .transition()
     .duration(700)
     .attrTween("d", (d) => arcTweenEnter(d));
+  
+  graph.selectAll('text').data(pie(data)).enter().append("text")
+        .attr("x", 200)
+        .attr("y", function(d,i){ return i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+        .style("fill", function(d){ return colorScale(d.data.name)})
+        .attr("text-anchor", "left")
+        .text(function(d){ return d.data.name})
+        .style("alignment-baseline", "middle")
+
 };
 
 // getting data from firestore in data array
