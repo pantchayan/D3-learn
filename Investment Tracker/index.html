@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <title>Investments Tracker</title>
+</head>
+<body class="blue-grey darken-2">
+
+    <header class="blue-grey darken-3 section">
+        <h2 class="center white-text">Investments tracker</h2>
+        <p class="flow-text grey-text center text-lighten-2">
+            Track your wealth on the go!
+        </p>
+
+    </header>
+
+    <div class="container section">
+        <div class="row">
+            <div class="col s12 m6">
+                <form class="card z-depth-0">
+                    <div class="card-content">
+                        <span class="card-title blue-grey-text">Add Investment:</span>
+                        <div class="input-field">
+                          <input type="text" id="name">
+                          <label for="name">Name</label>
+                        </div>
+                        <div class="input-field">
+                          <input type="text" id="cost">
+                          <label for="cost">Cost (₹)</label>
+                        </div>
+                        <div class="input-field center">
+                          <button class="btn-large deep-purple accent-2 white-text">Add Item</button>
+                        </div>
+                        <div class="input-field center">
+                          <p id="error" class="red-text"></p>
+                        </div>
+                      </div>
+                </form>
+            </div>
+            <div class="col s12 m5 push-m1">
+                <div class="canvas"></div>
+            </div>
+        </div>
+    </div>
+
+    
+    <blockquote class="grey-text">
+        @Pepcoding.pvt.ltd
+    </blockquote>
+
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        // databaseURL: "",
+        apiKey: "AIzaSyAIt4jWIhSztAxDNMaZSercC2aQBLND3ao",
+        authDomain: "d3-learning-4ba95.firebaseapp.com",
+        projectId: "d3-learning-4ba95",
+        storageBucket: "d3-learning-4ba95.appspot.com",
+        messagingSenderId: "237409928045",
+        appId: "1:237409928045:web:039205e043e332445fd064"
+      };
+ 
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      const settings = {timestampsInSnapshots: true};
+      db.settings(settings);
+
+    //   console.log(db.collection('dishes'));
+    </script>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
+    <script src="index.js"></script>
+    <script src="graph.js"></script>
+</body>
+</html>
