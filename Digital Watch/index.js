@@ -4,7 +4,7 @@ const canvas = d3.select(".canvas");
 
 const svg = canvas.append("svg").attr("width", "1040").attr("height", "750");
 
-// const square = svg.append('rect')
+
 const watchGroup = svg.append("g").attr("width", "innerWidth").attr("height", "innerHeight");
 
 let digits = [
@@ -198,7 +198,7 @@ let updateCells = (cellsData, d) => {
       cellsData[i].color = "#39FF14";
     }
   }
-};
+};// const square = svg.append('rect')
 
 // updating cells according to hour minute and second
 let updateDigits = (h, m, s) => {
