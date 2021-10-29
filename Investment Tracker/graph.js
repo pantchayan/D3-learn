@@ -1,5 +1,5 @@
-const dims = { height: 300, width: 300, radius: 150 };
-const cent = { x: dims.width / 2 + 5, y: dims.height / 2 + 5 };
+const dims = { height: 300, width: 400, radius: 150 };
+const center = { x: dims.width / 2 + 5, y: dims.height / 2 + 5 };
 
 const svg = d3
   .select(".canvas")
@@ -9,7 +9,11 @@ const svg = d3
 
 const graph = svg
   .append("g")
-  .attr("transform", `translate(${cent.x}, ${cent.y})`);
+  .attr("transform", `translate(${center.x}, ${center.y})`);
+
+const legend = svg
+  .append("g")
+  .attr("transform", `translate(${center.x + dims.radius + 20}, ${10})`);
 
 const pie = d3
   .pie()
@@ -33,14 +37,10 @@ let update = (data) => {
 
   // Join updated data to the elements
   const paths = graph.selectAll("path").data(pie(data));
+  const texts = legend.selectAll("text").data(pie(data));
+  const circles = legend.selectAll("circle").data(pie(data));
 
-  console.log(paths);
-  paths
-    .exit()
-    .transition()
-    .duration(700)
-    .attrTween("d", arcTweenExit)
-    .remove();
+  paths.exit().transition().duration(700).attrTween("d", arcTweenExit).remove();
 
   paths
     .attr("class", "arc")
@@ -53,21 +53,45 @@ let update = (data) => {
     .enter()
     .append("path")
     .attr("class", "arc")
-    // .attr("d", (d) => arcPath(d))
+    // .attr("d", (d) => arcPath(d)) // transitioning from 0 to end
     .attr("stroke", "#fff")
     .attr("stroke-width", 3)
     .attr("fill", (d) => colorScale(d.data.name))
     .transition()
     .duration(700)
     .attrTween("d", (d) => arcTweenEnter(d));
-  
-  graph.selectAll('text').data(pie(data)).enter().append("text")
-        .attr("x", 200)
-        .attr("y", function(d,i){ return i*25}) // 100 is where the first dot appears. 25 is the distance between dots
-        .style("fill", function(d){ return colorScale(d.data.name)})
-        .attr("text-anchor", "left")
-        .text(function(d){ return d.data.name})
-        .style("alignment-baseline", "middle")
+
+  texts.exit().remove();
+
+  texts
+    .attr("y", (d, i) => i * 25) //  25 is the distance between labels
+    .style("fill", d => colorScale(d.data.name))
+    .attr("text-anchor", "left")
+    .text(d => d.data.name)
+    .style("alignment-baseline", "middle")
+    .style("text-style", "bold")
+
+  texts
+    .enter()
+    .append("text")
+    .attr("x", 10)
+    .attr("y", (d, i) => i * 25) // 100 is where the first dot appears. 25 is the distance between dots
+    .style("fill", d => colorScale(d.data.name))
+    .attr("text-anchor", "left")
+    .text(d => d.data.name)
+    .style("alignment-baseline", "middle")
+    .style("font-weight", "500")
+
+  circles.exit().remove();
+
+  circles
+  .enter()
+  .append('circle')
+      .attr("cy", (d, i) => i*25)
+      .style("fill", d => colorScale(d.data.name))
+      .attr("r", 4)
+
+
 
 };
 
