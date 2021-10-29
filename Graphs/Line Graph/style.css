@@ -1,0 +1,35 @@
+.nav {
+  /* background: #34a853; */
+}
+button {
+  background: #4285f4 !important;
+  margin-bottom: 20px;
+  width: 80%;
+  padding: 16px;
+  font-size: 1.6em;
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+button.active {
+  background: #4285f4 !important;
+  opacity: 1;
+}
+form span {
+  color: #4285f4 !important;
+}
+.x-axis path,
+.y-axis path,
+.x-axis line,
+.y-axis line {
+  stroke: rgb(31, 31, 31);
+  stroke-width: 2;
+}
+.x-axis text,
+.y-axis text {
+  fill: black;
+  font-size: 14px;
+  font-weight: 540;
+}
