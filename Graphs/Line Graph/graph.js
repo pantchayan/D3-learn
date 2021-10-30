@@ -28,7 +28,7 @@ const yAxisGroup = graph.append("g").attr("class", "y-axis");
 
 const line = d3
   .line()
-  //   .curve(d3.curveCardinal)
+  // .curve(d3.curveCardinal)
   .x(function (d) {
     return x(new Date(d.date));
   })
@@ -97,9 +97,8 @@ const update = (data) => {
     .attr("d", line)
     .attr("stroke-linecap", "round")
     .transition()
-    .duration(delay * data.length)
+    .duration(300 * data.length)
     .attrTween("stroke-dasharray", tweenDash);
-
 };
 
 // getting data from firestore in data array
