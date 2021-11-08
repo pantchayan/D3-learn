@@ -1,0 +1,23 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.my-circle{
+    width: 500px;
+    height: 100vh;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+
+
+    .my-circle{
+        width: 200px;
+    }
+  }

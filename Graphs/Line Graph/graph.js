@@ -76,7 +76,7 @@ const update = (data) => {
   const yAxis = d3
     .axisLeft(y)
     .ticks(4)
-    .tickFormat((d) => d + "m");
+    .tickFormat((d) => d + "km");
 
   // call axes
   xAxisGroup.call(xAxis);
