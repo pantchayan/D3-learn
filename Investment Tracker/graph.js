@@ -33,7 +33,7 @@ let addMouseEvents = () => {
     .selectAll("path")
     .on("mouseover", handleMouseOver)
     .on("mouseout", handleMouseOut)
-    .on('click', handleClickEvent);
+    .on("click", handleClickEvent);
 };
 
 function handleMouseOver() {
@@ -56,7 +56,7 @@ function handleMouseOut() {
 
 function handleClickEvent() {
   let id = d3.select(this)._groups[0][0].__data__.data.id;
-  db.collection('investments').doc(id).delete();
+  db.collection("investments").doc(id).delete();
 }
 
 let makePopUp = (data) => {
@@ -64,7 +64,7 @@ let makePopUp = (data) => {
   details.exit().remove();
 
   details
-    .attr("x", (d) => dims.width/2 - 70)
+    .attr("x", (d) => dims.width / 2 - 70)
     .attr("y", (d) => dims.height + 50)
     .attr("text-anchor", "left")
     .text((d) => d.name + ": ₹" + d.cost)
@@ -90,6 +90,7 @@ let makePopUp = (data) => {
 
 // update function
 let update = (data) => {
+  console.log(data);
   // D3 OPTICS PATTERN
 
   // Update scales that rely on data
