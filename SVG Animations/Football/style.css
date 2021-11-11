@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: visible;
+}
+
+body{
+    background: #000;
+}
+
+
+#container{
+    margin: auto;
+    height: 100vh;
+    width: 600px;
+    background:green;
+}
+
+#football{
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 100px;
+    height: 100px;
+    width: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+    #container {
+        width: 100vw;
+    }
+
+    #football{
+        height: 100px;
+        width: 100px;
+    }
+}
