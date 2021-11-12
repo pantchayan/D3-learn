@@ -17,6 +17,10 @@ body{
     background:green;
 }
 
+#container:hover{
+    cursor: pointer;
+}
+
 #football{
     position: absolute;
     margin: auto;
@@ -27,7 +31,23 @@ body{
     width: 100px;
 }
 
-@media only screen and (max-width: 600px) {
+#score-container{
+    position: absolute;
+    top: 1em;
+    left:2em;
+    background-color: rgb(71, 71, 71);
+    border-radius: 5%;
+    padding: 0.3em;
+}
+
+.score{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 650px) {
     #container {
         width: 100vw;
     }
@@ -35,5 +55,15 @@ body{
     #football{
         height: 100px;
         width: 100px;
+    }
+
+    #score-container{
+        top: 0;
+        left:0;
+    }
+
+    .score{
+        font-size: 1em;
+    font-weight: 600;
     }
 }
