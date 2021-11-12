@@ -14,11 +14,11 @@ body{
     margin: auto;
     height: 100vh;
     width: 600px;
-    background:green;
 }
 
 #container:hover{
-    cursor: pointer;
+    cursor:crosshair;
+    caret-color: black;
 }
 
 #football{
@@ -45,6 +45,35 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5em;
     font-weight: 600;
+}
+
+#mouse-circle {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: -32px 0 0 -32px;
+    border: 1px solid #0f1c64;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+#click-here{
+    color: white;
+    position: absolute;
+    margin-left: auto;
+    margin-right:auto;
+    top:200px;
+    left:0;
+    right:0;
+    height: fit-content;
+    width: fit-content;
+    font-size: 1.5em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-weight: 700;
+}
+#click-here:hover{
+    color: rgb(87, 87, 87);
 }
 
 @media only screen and (max-width: 650px) {

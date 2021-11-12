@@ -1,3 +1,4 @@
+// adding swift control to the ball
 setInterval(() => {
   document.addEventListener("mousemove", (e) => {
     let footballSVG = d3.select("#football > svg");
@@ -36,7 +37,7 @@ setInterval(() => {
       }
     }
 
-    let rotateFactor = (translateX * 2)/containerWidth;
+    let rotateFactor = (translateX * 2) / containerWidth;
     footballSVG
       .transition()
       .duration(500)
@@ -44,8 +45,35 @@ setInterval(() => {
       .attr(
         "transform",
         `translate(${translateX},0)rotate(${
-          translateX < 0 ? -1*rotateFactor*90:rotateFactor*90
+          translateX < 0 ? -1 * rotateFactor * 90 : rotateFactor * 90
         })`
       );
   });
 }, 800);
+
+// adding circle around the cursor for better sense of control
+document.addEventListener("DOMContentLoaded", () => {
+  let mousePosX = 0,
+    mousePosY = 0,
+    mouseCircle = document.getElementById("mouse-circle");
+
+  document.onmousemove = (e) => {
+    mousePosX = e.pageX;
+    mousePosY = e.pageY;
+  };
+
+  let delay = 6,
+    revisedMousePosX = 0,
+    revisedMousePosY = 0;
+
+  function delayMouseFollow() {
+    requestAnimationFrame(delayMouseFollow);
+
+    revisedMousePosX += (mousePosX - revisedMousePosX) / delay;
+    revisedMousePosY += (mousePosY - revisedMousePosY) / delay;
+
+    mouseCircle.style.top = revisedMousePosY + "px";
+    mouseCircle.style.left = revisedMousePosX + "px";
+  }
+  delayMouseFollow();
+});
