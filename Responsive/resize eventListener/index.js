@@ -23,9 +23,9 @@ let drawCircle = (width) => {
 window.addEventListener("resize", () => {
   let currWidth = parseInt(d3.select(".my-circle").style("width"));
 
-  if (currWidth < 600) {
-    drawCircle(currWidth);
-  }   
+  drawCircle(currWidth);
+  // if (currWidth < 600) {
+  // }   
 });
 
 drawCircle(window.innerWidth);

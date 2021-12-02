@@ -9,7 +9,7 @@ let render = (data, max) => {
   data.sort((b, a) => {
     return a.value - b.value;
   });
-  
+
   let yScale = d3.scaleLinear().domain([0, max]).range([0, 600]);
   let xScale = d3
     .scaleBand()
@@ -21,38 +21,39 @@ let render = (data, max) => {
     .paddingInner(0.1)
     .range([0, 600]);
 
-  let rects = svg
-    .selectAll("rect")
-    .data(data, (entry, index) => entry.name)
-    .join((enter) =>
-      enter.append("rect").attr("y", (entry, index) => xScale(index))
-    )
+  // let rects = svg
+  //   .selectAll("rect")
+  //   .data(data, (entry, index) => entry.name)
+  //   .join((enter) =>
+  //     enter.append("rect").attr("y", (entry, index) => xScale(index))
+  //   )
+  //   .attr("height", xScale.bandwidth())
+  //   .attr("fill", (d) => d.color)
+  //   .transition()
+  //   .ease(d3.easeLinear)
+  //   .duration(200)
+  //   .attr("width", (d) => yScale(d.value))
+  //   .attr("y", (d, i) => xScale(i));
+
+  let rects = svg.selectAll("rect").data(data, (entry, index) => entry.name);
+  rects
     .attr("height", xScale.bandwidth())
     .attr("fill", (d) => d.color)
     .transition()
-    .ease(d3.easeLinear)
+    // .ease(d3.easeLinear)
     .duration(200)
-    .attr("width", (d) => yScale(d.value))
-    .attr("y", (d, i) => xScale(i));
-
-  //   rects
-  //     .attr("height", xScale.bandwidth())
-  //     .attr("fill", (d) => d.color)
-  //     .transition()
-  //     .ease(d3.easeLinear)
-  //     .duration(200)
-  //     .attr("y", (d, i) => xScale(i))
-  //     .attr("width", (d) => yScale(d.value));
-  //   rects
-  //     .enter()
-  //     .append("rect")
-  //     .attr("height", xScale.bandwidth())
-  //     .attr("fill", (d) => d.color)
-  //     .attr("y", (d, i) => xScale(i))
-  //     .transition()
-  //     .ease(d3.easeLinear)
-  //     .duration(200)
-  //     .attr("width", (d) => yScale(d.value));
+    .attr("y", (d, i) => xScale(i))
+    .attr("width", (d) => yScale(d.value));
+  rects
+    .enter()
+    .append("rect")
+    .attr("height", xScale.bandwidth())
+    .attr("fill", (d) => d.color)
+    .attr("y", (d, i) => xScale(i))
+    .transition()
+    // .ease(d3.easeLinear)
+    .duration(200)
+    .attr("width", (d) => yScale(d.value));
 
   let texts = svg
     .selectAll("text")
@@ -63,8 +64,8 @@ let render = (data, max) => {
       })
     )
     .text((d) => `${d.name} 🏃 @ distance ${Math.floor(d.value)}`)
-    .style('font-family', 'Arial')
-    .style('font-weight', 600)
+    .style("font-family", "Arial")
+    .style("font-weight", 600)
     .transition()
     .ease(d3.easeLinear)
     .duration(200)
